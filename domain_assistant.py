@@ -250,7 +250,7 @@ class OpenAIGenerator:
             raise RuntimeError("OPENAI_API_KEY is missing from .env")
         if not self.model:
             raise RuntimeError("OPENAI_MODEL is missing from .env")
-        self.client = OpenAI(api_key=api_key)
+        self.client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
         self.max_output_tokens = max_output_tokens
 
     def generate(self, prompt: str) -> str:
